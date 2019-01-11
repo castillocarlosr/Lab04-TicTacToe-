@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Lab04_TicTacToe.Classes;
 
 namespace Lab04_TicTacToe.Classes
 {
@@ -10,14 +11,20 @@ namespace Lab04_TicTacToe.Classes
 		/// <summary>
 		/// P1 is X and P2 will be O
 		/// </summary>
+        /// <return></return>
 		public string Marker { get; set; }
 
 		/// <summary>
 		/// Flag to determine if it is the user's turn
 		/// </summary>
+        /// <return></return>
 		public bool IsTurn { get; set; }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="board"></param>
+        /// <returns></returns>
 		public Position GetPosition(Board board)
 		{
 			Position desiredCoordinate = null;
@@ -31,7 +38,11 @@ namespace Lab04_TicTacToe.Classes
 
 		}
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
 		public static Position PositionForNumber(int position)
 		{
 			switch (position)
