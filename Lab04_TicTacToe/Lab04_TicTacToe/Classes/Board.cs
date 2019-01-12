@@ -20,7 +20,7 @@ namespace Lab04_TicTacToe.Classes
 
         /// <summary>
         /// This is what displays to the console when called.
-        /// Basically have to double for loop to read and display the board game.
+        /// Basically have to double for-loop to read and display the board game.
         /// </summary>
         /// <return>console</return>
 		public void DisplayBoard()

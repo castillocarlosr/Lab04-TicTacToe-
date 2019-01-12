@@ -39,17 +39,24 @@ namespace Lab04_TicTacToe.Classes
         /// <returns>Winner</returns>
         public Player Play()
 		{
-            //Console.Clear();
-            Console.WriteLine("Welcome to the amazing world of Tic Tac Toe");
-            Console.WriteLine("\n");
-            Console.Write("Player 1 please type in your name: ");
-            string inputNameOne = Console.ReadLine();
-            Console.Write("Player 2 please type in your name: ");
-            string inputNameTwo = Console.ReadLine();
-            Game TicTacToe = new Game(inputNameOne, inputNameTwo);
-            //Console.WriteLine(GameBoard);
-            return "string";
-
+            int round = 0;
+            Player Winner = null;
+            while(!CheckForWinner(Board))// && round < 9)
+            {
+                Board.DisplayBoard();
+                round++;
+                NextPlayer().TakeTurn(Board);
+                SwitchPlayer();
+                if(PlayerOne.IsTurn  && CheckForWinner(Board))
+                {
+                    PlayerOne = Winner;
+                }
+                else
+                {
+                    PlayerTwo = Winner;
+                }
+            }
+            return Winner;
             //TODO: Complete this method and utilize the rest of the class structure to play the game.
 
             /*
@@ -101,9 +108,13 @@ namespace Lab04_TicTacToe.Classes
 				string b = Board.GameBoard[p2.Row, p2.Column];
 				string c = Board.GameBoard[p3.Row, p3.Column];
 
-				// TODO:  Determine a winner has been reached. 
-				// return true if a winner has been reached. 
-			
+                // TODO:  Determine a winner has been reached. 
+                // return true if a winner has been reached. 
+                if ((a == b) && (b == c))
+                {
+                    Winner = PlayerOne.IsTurn ? PlayerTwo : PlayerOne;
+                    return true;
+                }
 			}
 
 			return false;

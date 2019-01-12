@@ -24,13 +24,25 @@ namespace Lab04_TicTacToe
             //Game TicTacToe = new Game(inputNameOne, inputNameTwo);
             //Console.WriteLine(GameBoard);
             */
-            DisplayBoard();
-
+            Board();
+            Game();
         }
 
-        private static void DisplayBoard()
+        static void LetsPlayTicTacToe()
         {
-            throw new NotImplementedException();
+            //Thermonuclear war
+            Console.Clear();
+            Console.WriteLine("Welcome to the amazing world of Tic Tac Toe");
+            Console.WriteLine("\n");
+            Console.Write("Player 1 please type in your name: ");
+            string inputNameOne = Console.ReadLine();
+            Console.Write("Player 2 please type in your name: ");
+            string inputNameTwo = Console.ReadLine();
+
+            Player playerOne = new Player
+            {
+
+            }
         }
     }
 }
