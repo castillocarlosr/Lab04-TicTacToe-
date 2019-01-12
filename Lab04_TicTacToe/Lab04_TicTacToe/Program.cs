@@ -13,6 +13,7 @@ namespace Lab04_TicTacToe
         /// <return>console game</return>
         static void Main(string[] args)
         {
+            /*
             Console.Clear();
             Console.WriteLine("Welcome to the amazing world of Tic Tac Toe");
             Console.WriteLine("\n");
@@ -22,6 +23,7 @@ namespace Lab04_TicTacToe
             string inputNameTwo = Console.ReadLine();
             //Game TicTacToe = new Game(inputNameOne, inputNameTwo);
             //Console.WriteLine(GameBoard);
+            */
             DisplayBoard();
 
         }

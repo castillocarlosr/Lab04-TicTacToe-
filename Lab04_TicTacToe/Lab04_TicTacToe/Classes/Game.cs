@@ -6,7 +6,10 @@ namespace Lab04_TicTacToe.Classes
 {
 	class Game
 	{
-		public Player PlayerOne { get; set; }
+        private string inputNameOne;
+        private string inputNameTwo;
+
+        public Player PlayerOne { get; set; }
 		public Player PlayerTwo { get; set; }
 		public Player Winner { get; set; }
 		public Board Board { get; set; }
@@ -24,14 +27,30 @@ namespace Lab04_TicTacToe.Classes
 			Board = new Board();
 		}
 
-		/// <summary>
-		/// Activate the Play of the game
-		/// </summary>
-		/// <returns>Winner</returns>
-		public Player Play()
-		{
+        public Game(string inputNameOne, string inputNameTwo)
+        {
+            this.inputNameOne = inputNameOne;
+            this.inputNameTwo = inputNameTwo;
+        }
 
-			//TODO: Complete this method and utilize the rest of the class structure to play the game.
+        /// <summary>
+        /// Activate the Play of the game
+        /// </summary>
+        /// <returns>Winner</returns>
+        public Player Play()
+		{
+            //Console.Clear();
+            Console.WriteLine("Welcome to the amazing world of Tic Tac Toe");
+            Console.WriteLine("\n");
+            Console.Write("Player 1 please type in your name: ");
+            string inputNameOne = Console.ReadLine();
+            Console.Write("Player 2 please type in your name: ");
+            string inputNameTwo = Console.ReadLine();
+            Game TicTacToe = new Game(inputNameOne, inputNameTwo);
+            //Console.WriteLine(GameBoard);
+            return "string";
+
+            //TODO: Complete this method and utilize the rest of the class structure to play the game.
 
             /*
              * Complete this method by constructing the logic for the actual playing of Tic Tac Toe. 
@@ -47,15 +66,15 @@ namespace Lab04_TicTacToe.Classes
 
             Use any and all pre-existing methods in this program to help construct the method logic. 
              */
-		}
+        }
 
 
-		/// <summary>
-		/// Check if winner exists
-		/// </summary>
-		/// <param name="board">current state of the board</param>
-		/// <returns>if winner exists</returns>
-		public bool CheckForWinner(Board board)
+        /// <summary>
+        /// Check if winner exists
+        /// </summary>
+        /// <param name="board">current state of the board</param>
+        /// <returns>if winner exists</returns>
+        public bool CheckForWinner(Board board)
 		{
 			int[][] winners = new int[][]
 			{
