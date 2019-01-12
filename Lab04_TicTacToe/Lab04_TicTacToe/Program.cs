@@ -5,6 +5,12 @@ namespace Lab04_TicTacToe
 {
     class Program
     {
+        ///Carlos Castillo Jan. 11, 2019
+        /// <summary>
+        /// Should hopefully run and start the tic-tac-toe by calling something
+        /// </summary>
+        /// <param name="args">Main</param>
+        /// <return>console game</return>
         static void Main(string[] args)
         {
             Console.Clear();
@@ -15,7 +21,14 @@ namespace Lab04_TicTacToe
             Console.Write("Player 2 please type in your name: ");
             string inputNameTwo = Console.ReadLine();
             //Game TicTacToe = new Game(inputNameOne, inputNameTwo);
-            Console.WriteLine(GameBoard);
+            //Console.WriteLine(GameBoard);
+            DisplayBoard();
+
+        }
+
+        private static void DisplayBoard()
+        {
+            throw new NotImplementedException();
         }
     }
 }
