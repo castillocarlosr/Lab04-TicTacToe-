@@ -22,7 +22,7 @@ namespace Lab04_TicTacToe
         /// <return></return>
         static void LetsPlayTicTacToe()
         {
-            //Console.Clear();
+            Console.Clear();
             Console.WriteLine("Welcome to the amazing world of Tic Tac Toe");
             Console.WriteLine("\n");
             Console.WriteLine("Player 1 has marker \"X\"");
@@ -48,7 +48,8 @@ namespace Lab04_TicTacToe
             Console.WriteLine("");
 
             //Playes the game
-            string winner = newGame.Play().Name;
+            //string winner = newGame.Play().Name;
+            Player winner = newGame.Play();
 
             //Displayes the winner
             if(winner == null)
@@ -57,9 +58,9 @@ namespace Lab04_TicTacToe
             }
             else
             {
-                Console.WriteLine($"Congratulations {winner}.  You have WON!");
+                Console.WriteLine($"Congratulations {winner.Name}.  You have WON!");
             }
-
+            
             Console.WriteLine("Would you like to play again?  y/n");
             string playAgain = Console.ReadLine();
             if(playAgain.ToLower() == "y")
