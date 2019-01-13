@@ -6,9 +6,6 @@ namespace Lab04_TicTacToe.Classes
 {
 	class Game
 	{
-        private string inputNameOne;
-        private string inputNameTwo;
-
         public Player PlayerOne { get; set; }
 		public Player PlayerTwo { get; set; }
 		public Player Winner { get; set; }
@@ -27,12 +24,6 @@ namespace Lab04_TicTacToe.Classes
 			Board = new Board();
 		}
 
-        public Game(string inputNameOne, string inputNameTwo)
-        {
-            this.inputNameOne = inputNameOne;
-            this.inputNameTwo = inputNameTwo;
-        }
-
         /// <summary>
         /// Activate the Play of the game
         /// </summary>
@@ -41,38 +32,24 @@ namespace Lab04_TicTacToe.Classes
 		{
             int round = 0;
             Player Winner = null;
-            while(!CheckForWinner(Board))// && round < 9)
+            while(!CheckForWinner(Board) && round < 9)
             {
                 Board.DisplayBoard();
-                round++;
-                NextPlayer().TakeTurn(Board);
                 SwitchPlayer();
+                NextPlayer().TakeTurn(Board);
+                Console.Clear();
+                round++;
                 if(PlayerOne.IsTurn  && CheckForWinner(Board))
                 {
-                    PlayerOne = Winner;
+                    Winner = PlayerOne;
                 }
                 else
                 {
-                    PlayerTwo = Winner;
+                    Winner = PlayerTwo;
                 }
             }
+            Board.DisplayBoard();
             return Winner;
-            //TODO: Complete this method and utilize the rest of the class structure to play the game.
-
-            /*
-             * Complete this method by constructing the logic for the actual playing of Tic Tac Toe. 
-             * 
-             * A few things to get you started:
-            1. A turn consists of a player picking a position on the board with their designated marker. 
-            2. Display the board after every turn to show the most up to date state of the game
-            3. Once a Winner is determined, display the board one final time and return a winner
-
-            Few additional hints:
-                Be sure to keep track of the number of turns that have been taken to determine if a draw is required
-                and make sure that the game continues while there are unmarked spots on the board. 
-
-            Use any and all pre-existing methods in this program to help construct the method logic. 
-             */
         }
 
 
@@ -108,15 +85,13 @@ namespace Lab04_TicTacToe.Classes
 				string b = Board.GameBoard[p2.Row, p2.Column];
 				string c = Board.GameBoard[p3.Row, p3.Column];
 
-                // TODO:  Determine a winner has been reached. 
+                // Determine a winner has been reached. 
                 // return true if a winner has been reached. 
                 if ((a == b) && (b == c))
                 {
-                    Winner = PlayerOne.IsTurn ? PlayerTwo : PlayerOne;
                     return true;
                 }
 			}
-
 			return false;
 		}
 
@@ -127,7 +102,7 @@ namespace Lab04_TicTacToe.Classes
 		/// <returns>next player</returns>
 		public Player NextPlayer()
 		{
-			return (PlayerOne.IsTurn) ? PlayerOne : PlayerTwo;
+			return PlayerOne.IsTurn ? PlayerOne : PlayerTwo;
 		}
 
 		/// <summary>
@@ -139,8 +114,6 @@ namespace Lab04_TicTacToe.Classes
 			{
               
 				PlayerOne.IsTurn = false;
-
-              
 				PlayerTwo.IsTurn = true;
 			}
 			else
@@ -149,7 +122,5 @@ namespace Lab04_TicTacToe.Classes
 				PlayerTwo.IsTurn = false;
 			}
 		}
-
-
 	}
 }

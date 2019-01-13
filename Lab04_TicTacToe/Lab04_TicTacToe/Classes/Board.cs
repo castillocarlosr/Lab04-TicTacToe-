@@ -20,23 +20,20 @@ namespace Lab04_TicTacToe.Classes
 
         /// <summary>
         /// This is what displays to the console when called.
-        /// Basically have to double for-loop to read and display the board game.
+        /// Basically have to double for-loop to read and display the board game to console.
         /// </summary>
         /// <return>console</return>
 		public void DisplayBoard()
 		{
-
-            //TODO: Output the board to the console
             for (int i = 0; i < GameBoard.GetLength(0); i++)
             {
                 for (int j = 0; j < GameBoard.GetLength(1); j++)
                 {
-                    Console.Write(string.Format("{0}", GameBoard[i, j]));
+                    //Console.Write(string.Format("{0}", GameBoard[i, j]));
+                    Console.Write($"|{GameBoard[i, j]}|");
                 }
-                Console.Write(Environment.NewLine + Environment.NewLine);
+                Console.WriteLine("\n");
             }
-            Console.ReadLine();
-		
 		}
 	}
 }

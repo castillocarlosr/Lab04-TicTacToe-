@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Lab04_TicTacToe.Classes;
 
 namespace Lab04_TicTacToe.Classes
 {
     class Player
     {
-		public string Name { get; set; }
+        /// <summary>
+        /// This is what gets the name and sets them as P1 and P2
+        /// </summary>
+        /// <return>string</return>
+        public string Name { get; set; }
+
 		/// <summary>
 		/// P1 is X and P2 will be O
 		/// </summary>
-        /// <return></return>
+        /// <return>string</return>
 		public string Marker { get; set; }
 
 		/// <summary>
