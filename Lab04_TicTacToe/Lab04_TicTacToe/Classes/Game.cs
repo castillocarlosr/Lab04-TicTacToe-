@@ -4,8 +4,11 @@ using System.Text;
 
 namespace Lab04_TicTacToe.Classes
 {
-	class Game
+	public class Game
 	{
+        /// <summary>
+        /// Gets the input of players, winner, and board.
+        /// </summary>
         public Player PlayerOne { get; set; }
 		public Player PlayerTwo { get; set; }
 		public Player Winner { get; set; }
@@ -13,7 +16,7 @@ namespace Lab04_TicTacToe.Classes
 
 
 		/// <summary>
-		/// Require 2 players and a board to start a game. 
+		/// Requires 2 players and a board to start a game. 
 		/// </summary>
 		/// <param name="p1">Player 1</param>
 		/// <param name="p2">Player 2</param>
@@ -30,22 +33,26 @@ namespace Lab04_TicTacToe.Classes
         /// <returns>Winner</returns>
         public Player Play()
 		{
-            int round = 0;
+            int turns = 0;
             Player Winner = null;
-            while(!CheckForWinner(Board) && round < 9)
+            while(!CheckForWinner(Board) && turns < 9)
             {
                 Board.DisplayBoard();
                 SwitchPlayer();
                 NextPlayer().TakeTurn(Board);
                 Console.Clear();
-                round++;
+                turns++;
                 if(PlayerOne.IsTurn  && CheckForWinner(Board))
                 {
                     Winner = PlayerOne;
                 }
-                else
+                else if(PlayerTwo.IsTurn && CheckForWinner(Board))
                 {
                     Winner = PlayerTwo;
+                }
+                else
+                {
+                    Winner = null;
                 }
             }
             Board.DisplayBoard();
@@ -87,7 +94,7 @@ namespace Lab04_TicTacToe.Classes
 
                 // Determine a winner has been reached. 
                 // return true if a winner has been reached. 
-                if ((a == b) && (b == c))
+                if ((a == b) && (b == c) && (a == c))
                 {
                     return true;
                 }

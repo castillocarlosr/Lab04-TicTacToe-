@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab04_TicTacToe.Classes
 {
-    class Player
+    public class Player
     {
         /// <summary>
         /// This is what gets the name and sets them as P1 and P2
@@ -43,13 +43,13 @@ namespace Lab04_TicTacToe.Classes
 		}
 
         /// <summary>
-        /// 
+        /// This is where the user enters the number for which position they want.
         /// </summary>
         /// <param name="position"></param>
         /// <returns></returns>
 		public static Position PositionForNumber(int position)
 		{
-			switch (position)
+            switch (position)
 			{
 				case 1: return new Position(0, 0); // Top Left
 				case 2: return new Position(0, 1); // Top Middle
@@ -65,12 +65,16 @@ namespace Lab04_TicTacToe.Classes
 			}
 		}
 
-	
-		public void TakeTurn(Board board)
+        /// <summary>
+        /// This is where the player turns are made and switch between one and two.
+        /// </summary>
+        /// <param name="board"></param>
+        public void TakeTurn(Board board)
 		{
 			IsTurn = true;
 
-			Console.WriteLine($"{Name} it is your turn");
+            //Had to add Marker in console line so I could know if I was X or O
+			Console.WriteLine($"{Name} it is your turn and your marker us {Marker}");
 
 			Position position = GetPosition(board);
 
@@ -82,6 +86,7 @@ namespace Lab04_TicTacToe.Classes
 			{
 				Console.WriteLine("This space is already occupied");
                 Console.ReadLine();
+                IsTurn = false;
 			}
 		}
 	}

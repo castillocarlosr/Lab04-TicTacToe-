@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Lab04_TicTacToe.Classes
 {
-    class Board
+    public class Board
     {
 		/// <summary>
 		/// A 2D array of the gameboard
 		/// </summary>
-        ///<param name="">Main</param>
-        /// <return>nothing</return>
+        ///<param name="GameBoard">GameBoard</param>
+        /// <return>string array</return>
 		public string[,] GameBoard = new string[,]
 		{
 			{"1", "2", "3"},
@@ -29,7 +29,6 @@ namespace Lab04_TicTacToe.Classes
             {
                 for (int j = 0; j < GameBoard.GetLength(1); j++)
                 {
-                    //Console.Write(string.Format("{0}", GameBoard[i, j]));
                     Console.Write($"|{GameBoard[i, j]}|");
                 }
                 Console.WriteLine("\n");

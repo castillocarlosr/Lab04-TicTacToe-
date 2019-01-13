@@ -48,7 +48,6 @@ namespace Lab04_TicTacToe
             Console.WriteLine("");
 
             //Playes the game
-            //string winner = newGame.Play().Name;
             Player winner = newGame.Play();
 
             //Displayes the winner
